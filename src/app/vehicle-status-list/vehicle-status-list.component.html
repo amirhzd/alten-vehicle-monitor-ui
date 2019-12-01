@@ -1,0 +1,47 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <th>Vehicle ID</th>
+      <th>Reg. Plate</th>
+      <th>
+        <ng-select [items]="customerList"
+                   bindLabel="fullName"
+                   bindValue="id"
+                   placeholder="Customer Name"
+                   class="select-fixed-width-customer"
+                   [(ngModel)]="selectedCustomer"
+                   (change)="filterChanged()">
+        </ng-select>
+      </th>
+      <th>
+        <ng-select [items]="statuses"
+                   bindLabel="name"
+                   bindValue="value"
+                   placeholder="Vehicle Status"
+                   class="select-fixed-width-status"
+                   [(ngModel)]="selectedStatusValue"
+                   (change)="filterChanged()">
+        </ng-select>
+      </th>
+      <th>Timestamp</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cvs of customerVehicleStatusList">
+        <td>{{cvs.customerVehicle.vehicleId}}</td>
+        <td>{{cvs.customerVehicle.registrationPlate}}</td>
+        <td>{{cvs.customerVehicle.customer.fullName}}</td>
+        <td [ngClass]="{'connected-font-color': cvs.status === 'CONNECTED', 'not-connected-font-color': cvs.status === 'NOT_CONNECTED'}">
+          {{cvs.status}}</td>
+        <td>{{cvs.timestamp}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<!--
+  <ng-option [value]="item.id" *ngFor="let item of statuses">
+    {{item.name}}
+  </ng-option>
+-->

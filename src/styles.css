@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.select-fixed-width-status {
+  width: 200px;
+}
+.select-fixed-width-customer {
+  width: 350px;
+}
+
+.connected-font-color {
+  color: green;
+}
+
+.not-connected-font-color {
+  color: red;
+}
