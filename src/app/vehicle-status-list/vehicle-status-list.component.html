@@ -27,9 +27,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let cvs of customerVehicleStatusList">
-        <td>{{cvs.customerVehicle.vehicleId}}</td>
-        <td>{{cvs.customerVehicle.registrationPlate}}</td>
-        <td>{{cvs.customerVehicle.customer.fullName}}</td>
+        <td>{{cvs.vehicleId}}</td>
+        <td>{{cvs.registrationPlate}}</td>
+        <td>{{cvs.fullName}}</td>
         <td [ngClass]="{'connected-font-color': cvs.status === 'CONNECTED', 'not-connected-font-color': cvs.status === 'NOT_CONNECTED'}">
           {{cvs.status}}</td>
         <td>{{cvs.timestamp}}</td>
